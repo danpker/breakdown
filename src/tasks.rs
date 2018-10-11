@@ -18,6 +18,20 @@ impl Task {
     }
 }
 
+pub fn print_task(task: Task) {
+    _print_task(task, 0);
+}
+
+fn _print_task(task: Task, offset: u64) {
+
+    let prefix = (0..offset).map(|_| " ").collect::<String>();
+    println!("{}{}", prefix, task.title);
+
+    for child in task.children {
+        _print_task(child, offset + 1);
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
