@@ -1,3 +1,6 @@
+mod tasks;
+
 fn main() {
-    println!("Hello, world!");
+    let task = tasks::Task::new("hi!".to_string());
+    task.print();
 }
